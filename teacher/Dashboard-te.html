@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>       لوحة التحكم المعلم     </title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .submenu {
+      display: none; /* تعيين العرض الافتراضي للقوائم الفرعية إلى مخفي */
+    }
+  </style>
+  <script>
+    function toggleSubMenu(menuId) {
+      const submenu = document.getElementById(menuId);
+      // التبديل بين العرض المخفي والمظهر للقائمة الفرعية
+      submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
+    }
+  </script>
+</head>
+<body dir="rtl" class="flex h-screen bg-gray-100 overflow-hidden">
+
+ <!-- Start Sidebar -->
+
+ <aside class="w-60 bg-white shadow-lg">
+  <div class="p-12 flex flex-col items-center mt-8">
+    <img class="w-12 h-12 rounded-full" src="st.png" alt="User Photo">
+    <div class="text-center mt-2">
+      <p class="text-lg font-semibold">اسم المستخدم</p>
+      <p class="text-sm text-gray-500">  المعلم </p>
+    </div>
+  </div>
+  
+  <nav>
+    <ul>
+      <!--       لوحة التحكم   -->
+      <li class="w-full flex items-center p-3 hover:bg-gray-200">
+        <i class='bx bxs-dashboard'></i>
+        <a href="Dashboard-st.html" class="p-1 block w-full text-base">لوحة التحكم</a>
+      </li>
+      <!--       الجدول الدراسي   -->
+      <li class="w-full flex items-center p-3 hover:bg-gray-200">
+        <i class='bx bxs-log-out'></i>
+        <a href="Table-st.html" class="p-1 block w-full text-base">الجدول الدراسي</a>
+      </li>
+      <!--       حضور وغياب       -->
+      <li class="w-full flex items-center p-3 hover:bg-gray-200">
+        <i class='bx bxs-report'></i>
+        <a href="report-st.html" class="p-1 block w-full text-base">حضور وغياب</a>
+      </li>
+      <!--     كشف درجات  -->
+      <li class="w-full flex items-center p-3 hover:bg-gray-200">
+        <i class='bx bx-search-alt text-sm'></i>
+        <a href="Grade.disclosure-st.html" class="p-1 block w-full text-base">كشف درجات</a>
+      </li>
+      <!--       الأنشطة   -->
+      <li class="w-full flex items-center p-3 hover:bg-gray-200">
+        <i class='bx bx-stats'></i>
+        <a href="stats-st.html" class="p-1 block w-full text-base">الأنشطة</a>
+      </li>
+      <!--       الإشعارات       -->
+      <li class="w-full flex items-center p-3 hover:bg-gray-200">
+        <i class='bx bxs-bell text-sm'></i>
+        <a href="Notifications-st.html" class="p-1 block w-full text-sm">الإشعارات</a>
+      </li>
+      <!--       إعدادات النظام       -->
+      <li class="w-full flex items-center p-3 hover:bg-gray-200">
+        <i class='bx bxs-cog text-sm'></i>
+        <a href="Settings-st.html" class="p-1 block w-full text-sm">إعدادات النظام</a>
+      </li>
+    </ul>
+  </nav>
+</aside>
+
+
+ <!-- End Sidebar -->
+
+ <!-- المحتوى الرئيسي -->
+ <div class="flex-grow flex flex-col">
+
+  <!-- Start Navbar -->
+  <nav class="bg-white border-b border-gray-200">
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-3">
+      <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
+        <!-- يمكنك إضافة الشعار أو النص هنا إذا كنت ترغب -->
+      </a>
+
+      <div class="flex items-center md:order-2 relative">
+        <!-- أيقونة الإشعارات -->
+        <button class=" text-blue p-2 rounded-lg hover:bg-blue-700 mr-5">
+          <i class='bx bx-bell'></i> 
+        </button>
+        
+        <!-- أيقونة المستخدم (تسجيل الخروج) -->
+        <button type="button" class="flex text-lg bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 mr-5" id="user-menu-button" aria-expanded="false">
+          <span class="sr-only">Open user menu</span>
+          <img class="w-8 h-8 rounded-full" src="st.png" alt="user photo">
+        </button>
+      
+        <!-- Dropdown menu -->
+        <div class="absolute left-0 z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow" id="user-dropdown" style="top: 100%;">
+          <div class="px-4 py-3">
+            <span class="block text-sm text-gray-900">اسم المستخدم</span>
+            <span class="block text-sm text-gray-500 truncate">البريد الإلكتروني</span>
+          </div>
+          <ul class="py-2" aria-labelledby="user-menu-button">
+            <li><a href="index.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-black">الرئيسية</a></li>
+            <li><a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-black ">الملف الشخصي</a></li>
+            <li><a href="#" class="block px-4 pt-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-black ">تسجيل الخروج</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- End Navbar -->
+
+  <!-- Content Area -->
+  <div class="flex-grow p-6">
+    <h2 class="text-2xl font-semibold mb-6">  </h2>
+ 
+  </div>
+
+
+  </div>
+  <!-- End Content Area -->
+ 
+  
+  <script>
+   
+ // وظيفة لتبديل القائمة المنسدلة
+ function toggleDropdown() {
+       const dropdown = document.getElementById('user-dropdown');
+       dropdown.classList.toggle('hidden'); // تغيير الرؤية عند الضغط
+   }
+   
+   // إغلاق القائمة عند الضغط خارجها
+   window.onclick = function(event) {
+       const dropdown = document.getElementById('user-dropdown');
+       const button = document.getElementById('user-menu-button');
+   
+       // تحقق مما إذا كان المستخدم ضغط خارج القائمة المنسدلة والزر
+       if (!button.contains(event.target) && !dropdown.contains(event.target)) {
+           dropdown.classList.add('hidden');
+       }
+   }
+   
+   // إضافة حدث النقر على الزر
+   document.getElementById('user-menu-button').addEventListener('click', (event) => {
+       event.stopPropagation(); // إيقاف انتشار الحدث لتجنب إغلاق القائمة عند الضغط على الزر
+       toggleDropdown();
+   });
+
+
+
+
+
+
+
+  </script>
+
+</body>
+</html>

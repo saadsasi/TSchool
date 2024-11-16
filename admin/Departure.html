@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>المغادرة - إدارة المدرسة</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+  <style>
+    .submenu {
+      display: none; /* تعيين العرض الافتراضي للقوائم الفرعية إلى مخفي */
+    }
+  </style>
+  <script>
+    function toggleSubMenu(menuId) {
+      const submenu = document.getElementById(menuId);
+      // التبديل بين العرض المخفي والمظهر للقائمة الفرعية
+      submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
+    }
+  </script>
+
+</head>
+
+<body dir="rtl" class="flex h-screen bg-gray-100">
+ <!-- Start Sidebar -->
+ <aside class="w-60 bg-white shadow-lg fixed h-full">
+  <div class="">
+    <!-- قسم صورة المستخدم واسم المستخدم ووظيفته -->
+    <div class="p-12 flex flex-col items-center mt-8">
+      <!-- صورة المستخدم -->
+      <img class="w-12 h-12 rounded-full" src="logo.jpg" alt="User Photo">
+      <!-- نص أسفل الصورة -->
+      <div class="text-center mt-2">
+        <!-- اسم المستخدم -->
+        <p class="text-lg font-semibold">اسم المستخدم</p>
+        <!-- وظيفة المستخدم -->
+        <p class="text-sm text-gray-500">وظيفة المستخدم (مثال: مسؤول النظام)</p> <!-- يمكنك تغيير الوظيفة هنا -->
+      </div>
+    </div>
+  </div>
+
+  <nav>
+    <ul>
+        
+        <!--       لوحة التحكم   -->
+        <li class="w-full hover:bg-gray-100 flex items-center p-4">
+          <i class='bx bxs-dashboard   '></i>
+          <a href="Dashboard.html" class=" p-1block w-full">   لوحة التحكم   </a>
+        </li>
+
+      <!-- إدارة الجداول والأنشطة مع قائمة فرعية -->
+        <li class="w-full">
+        <button onclick="toggleSubMenu('scheduleActivitiesSubMenu')" class="flex items-center text-base w-full text-right p-4 hover:bg-gray-100 focus:outline-none">
+        <i class="bx bx-table  "></i>
+        إدارة الجداول والأنشطة
+        <i class="bx bx-chevron-down   mr-4"></i>
+        </button>
+        <!-- قائمة فرعية -->
+        <ul id="scheduleActivitiesSubMenu" class="submenu bg-white pl-4">
+        <li class="flex items-center hover:bg-gray-100">
+        <i class="bx bx-table p-4"></i>
+        <a href="Classes.Scheduling.html" class="w-full p-3">الجدول الدراسي</a>
+        </li>
+        <li class="flex items-center hover:bg-gray-100">
+        <i class="bx bx-stats p-4"></i>
+        <a href="Activities.html" class="block w-full p-3">الأنشطة</a>
+        </li>
+        </ul>
+        </li>
+
+
+        
+      <!-- إدارة المستخدمين مع قائمة فرعية -->
+
+      <li class="w-full hover:bg-gray-100">
+        <button onclick="toggleSubMenu('userManagementSubMenu')" class="flex items-center w-full text-right p-4 hover:bg-gray-100 focus:outline-none">
+          <i class="bx bx-user-circle "></i>
+          <span >إدارة المستخدمين</span>
+          <i class="bx bx-chevron-down  mr-12"></i>
+        </button>
+        <ul id="userManagementSubMenu" class="submenu bg-white pl-4">
+          <li class="flex items-center hover:bg-gray-100">
+            <i class="bx bx-user-circle p-4"></i>
+            <a href="UsersManagement-Parents.html" class="block w-full p-3">أولياء الأمور</a>
+          </li>
+          <li class="flex items-center hover:bg-gray-100 ">
+            <i class="bx bx-user-circle p-4"></i>
+            <a href="UsersManagement-Students.html" class="block w-full p-3">الطلاب</a>
+          </li>
+          <li class="flex items-center hover:bg-gray-100">
+            <i class="bx bx-user-circle p-4"></i>
+            <a href="UsersManagement-Teachers.html" class="block w-full p-3">المعلمين</a>
+          </li>
+        </ul>
+      </li>
+    
+      <!-- إعداد التقارير العامة مع قائمة فرعية -->
+      <!-- <li>
+        <button onclick="toggleSubMenu('generalReportsSubMenu')" class="block w-full text-right p-4 hover:bg-gray-100 focus:outline-none">
+          <i class='bx bxs-report'></i>  إعداد التقارير العامة  <i class='bx bx-chevron-down mr-5'></i>
+        </button>
+        <ul id="generalReportsSubMenu" class="submenu pl-4">
+          <li class='bx bxs-pencil p-4'><a href="Attendance.html" class="p-3 hover:bg-gray-200">الحضور</a></li>
+          <li class='bx bxs-log-out p-4'><a href="Departure.html" class="  p-3 hover:bg-gray-200">المغادرة</a></li>
+          <li class="bx bx-stats p-4"><a href="Activities.html" class="  p-3 hover:bg-gray-200">الأنشطة</a></li>
+        </ul>
+      </li>   
+    -->
+
+ 
+                 <!--   إعداد التقارير العامة مع قائمة فرعية      -->
+
+    <li class="w-full hover:bg-gray-100">
+      <button onclick="toggleSubMenu('generalReportsSubMenu')" class="flex items-center w-full text-right p-4 hover:bg-gray-100 focus:outline-none">
+        <i class="bx bxs-report "></i>
+        <span>إعداد التقارير العامة</span>
+        <i class="bx bx-chevron-down mr-8"></i>
+      </button>
+      <ul id="generalReportsSubMenu" class="submenu bg-white pl-4">
+        <li class="flex items-center hover:bg-gray-100">
+          <i class="bx bxs-pencil p-4"></i>
+          <a href="Attendance.html" class="block w-full p-3">الحضور</a>
+        </li>
+        <li class="flex items-center hover:bg-gray-100">
+          <i class="bx bxs-log-out p-4"></i>
+          <a href="Departure.html" class="block w-full p-3">المغادرة</a>
+        </li>
+        <li class="flex items-center hover:bg-gray-100">
+          <i class="bx bx-stats p-4"></i>
+          <a href="Activities.html" class="block w-full p-3">الأنشطة</a>
+        </li>
+      </ul>
+    </li>
+    
+
+        <!--        إدارة الشؤون المالية        -->
+        <li class="w-full hover:bg-gray-100 flex items-center p-4">
+          <i class='bx bxs-wallet'></i>
+          <a href="Financial.html" class=" p-2 block w-full">   إدارة الشؤون المالية   </a>
+        </li>
+      
+            <!--       الإشعارات       -->
+      <li class="w-full hover:bg-gray-100 flex items-center p-4">
+        <i class='bx bxs-bell'></i>
+        <a href="Notifications.html" class=" p-2 block w-full">   الإشعارات   </a>
+      </li>
+            <!--       إعدادات النظام       -->
+      <li class="w-full hover:bg-gray-100 flex items-center p-4">
+        <i class='bx bxs-cog  '></i>
+        <a href="Settings.html" class="  p-2 block w-full">إعدادات النظام</a>
+      </li>
+
+    
+
+      <!--     نسخة تابتة      -->
+     <!-- <li class="w-full hover:bg-gray-100 flex items-center p-4">
+        <i class='bx bxs-cog mr-2'></i>
+        <a href="Settings.html" class="block w-full">إعدادات النظام</a>
+      </li>
+    -->
+    
+    </ul>
+  </nav>
+</aside>
+
+
+ <!-- End Sidebar -->
+
+
+<!-- المحتوى الرئيسي -->
+<div class="flex-grow flex flex-col">
+
+<!-- Start Navbar -->
+<nav class="bg-white border-b border-gray-200 fixed left-0 w-full z-50">
+  <div class="max-w-screen-xl flex items-center justify-between mx-auto p-3">
+    <a href="#" class="flex">
+      <!-- يمكنك إضافة الشعار أو النص هنا إذا كنت ترغب -->
+    </a>
+
+    <!-- تعديل هذه الحاوية لتقريب الأيقونات لليسار أكثر -->
+    <div class="flex items-center md:order-2 relative mr-auto">
+      <!-- أيقونة الإشعارات -->
+      <button class="text-blue p-2 rounded-lg hover:bg-blue-700 mr-5">
+        <i class='bx bx-bell'></i> 
+      </button>
+        
+      <!-- أيقونة المستخدم (تسجيل الخروج) -->
+      <button type="button" class="flex text-lg bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 mr-5" id="user-menu-button" aria-expanded="false">
+        <span class="sr-only">فتح قائمة المستخدم</span>
+        <img class="w-8 h-8 rounded-full" src="logo.jpg" alt="user photo">
+      </button>
+    </div>
+</div>
+
+          
+          <!-- Dropdown menu -->
+          <div class="absolute left-0 z-50 hidden mt-2 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow" id="user-dropdown" style="top: 100%; width: 180px;">
+            <div class="px-4 py-3">
+              <span class="block text-sm text-gray-900">اسم المستخدم</span>
+              <span class="block text-sm text-gray-500 truncate">البريد الإلكتروني</span>
+            </div>
+            <ul class="py-2" aria-labelledby="user-menu-button">
+              <li><a href="index.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-black">الرئيسية</a></li>
+              <li><a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-black">الملف الشخصي</a></li>
+              <li><a href="#" class="block px-4 pt-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-black">تسجيل الخروج</a></li>
+            </ul>
+          </div>
+        </button>
+      </div>
+    </div>
+  </nav>
+  <!-- End Navbar -->
+
+  <!-- المساحة التي تبدأ من تحت النافبار بحيث لا تتداخل -->
+  <div class="pt-20">
+    <!-- باقي المحتوى الخاص بالصفحة هنا -->
+  </div>
+
+</div>
+
+
+
+
+
+
+
+  <!-- Main Content -->
+  <div class="flex-grow p-6">
+    <h3 class="text-xl font-semibold mb-6">إدارة المغادرة</h3>
+
+    <!-- Filter Section -->
+    <div class="mb-6">
+      <label for="user-type" class="block text-sm font-semibold mb-2">اختر نوع المستخدم:</label>
+      <select id="user-type" class="block w-full p-3 bg-white border rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+        <option value="students">الطلاب</option>
+        <option value="teachers">المعلمون</option>
+        <option value="all">الجميع</option>
+      </select>
+    </div>
+
+    <!-- Departure Requests -->
+    <div class="space-y-4">
+      <!-- Student Departure Request -->
+      <div class="bg-blue-100 p-4 rounded-md shadow-md flex items-center justify-between">
+        <div>
+          <p class="text-sm font-semibold">طلب مغادرة الطالب: أحمد محمد</p>
+          <p class="text-xs text-gray-500">الوقت: 1:00 PM</p>
+        </div>
+        <div>
+          <button class="bg-green-500 text-white px-4 py-2 rounded-md">موافقة</button>
+          <button class="bg-red-500 text-white px-4 py-2 rounded-md">رفض</button>
+        </div>
+      </div>
+
+      <!-- Teacher Departure Request -->
+      <div class="bg-green-100 p-4 rounded-md shadow-md flex items-center justify-between">
+        <div>
+          <p class="text-sm font-semibold">طلب مغادرة المعلم: فاطمة علي</p>
+          <p class="text-xs text-gray-500">الوقت: 2:30 PM</p>
+        </div>
+        <div>
+          <button class="bg-green-500 text-white px-4 py-2 rounded-md">موافقة</button>
+          <button class="bg-red-500 text-white px-4 py-2 rounded-md">رفض</button>
+        </div>
+      </div>
+
+      <!-- Admin Request -->
+      <div class="bg-yellow-100 p-4 rounded-md shadow-md flex items-center justify-between">
+        <div>
+          <p class="text-sm font-semibold">طلب مغادرة الموظف الإداري: محمد إبراهيم</p>
+          <p class="text-xs text-gray-500">الوقت: 3:15 PM</p>
+        </div>
+        <div>
+          <button class="bg-green-500 text-white px-4 py-2 rounded-md">موافقة</button>
+          <button class="bg-red-500 text-white px-4 py-2 rounded-md">رفض</button>
+        </div>
+      </div>
+    </div>
+  </div>
+     <!-- End Content --> 
+
+
+
+
+
+     <script>
+
+
+
+      // وظيفة لتبديل القائمة المنسدلة
+      function toggleDropdown() {
+         const dropdown = document.getElementById('user-dropdown');
+         dropdown.classList.toggle('hidden'); // تغيير الرؤية عند الضغط
+     }
+     
+     // إغلاق القائمة عند الضغط خارجها
+     window.onclick = function(event) {
+         const dropdown = document.getElementById('user-dropdown');
+         const button = document.getElementById('user-menu-button');
+     
+         // تحقق مما إذا كان المستخدم ضغط خارج القائمة المنسدلة والزر
+         if (!button.contains(event.target) && !dropdown.contains(event.target)) {
+             dropdown.classList.add('hidden');
+         }
+     }
+     
+     // إضافة حدث النقر على الزر
+     document.getElementById('user-menu-button').addEventListener('click', (event) => {
+         event.stopPropagation(); // إيقاف انتشار الحدث لتجنب إغلاق القائمة عند الضغط على الزر
+         toggleDropdown();
+     });
+     
+
+
+
+
+
+
+     </script>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>التقارير - لوحة التحكم</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100" dir="rtl">
+
+  <div class="flex">
+    <!-- Sidebar -->
+    <aside class="w-64 bg-white shadow-lg p-6">
+      <h2 class="text-2xl font-semibold">لوحة التحكم</h2>
+      <nav class="mt-6">
+        <ul>
+          <li><a href="index.html" class="block p-4 hover:bg-gray-100">الرئيسية</a></li>
+          <li><a href="Academicschedule.html" class="block p-4 hover:bg-gray-100">الجدول الدراسي</a></li>
+          <li><a href="Activities.html" class="block p-4 hover:bg-gray-100">الأنشطة</a></li>
+          <li><a href="Departure.html" class="block p-4 hover:bg-gray-100">المغادرة</a></li>
+          <li><a href="UsersManagement.html" class="block p-4 hover:bg-gray-100">إدارة المستخدمين</a></li>
+          <li><a href="Reports.html" class="block p-4 bg-gray-200 hover:bg-gray-300">التقارير</a></li>
+          <li><a href="Settings.html" class="block p-4 hover:bg-gray-100">إعدادات النظام</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="flex-grow p-6">
+      <h2 class="text-2xl font-semibold mb-6">التقارير</h2>
+      
+      <!-- Report Type Selection -->
+      <div class="mb-6">
+        <label class="font-semibold">اختيار نوع التقرير:</label>
+        <select class="bg-white p-2 border rounded-md">
+          <option value="attendance">التقارير الحضور</option>
+          <option value="activities">تقارير الأنشطة</option>
+          <option value="performance">تقارير الأداء الأكاديمي</option>
+        </select>
+      </div>
+
+      <!-- Report Table -->
+      <div class="overflow-x-auto bg-white shadow-md rounded-lg">
+        <table class="min-w-full table-auto">
+          <thead class="bg-gray-200">
+            <tr>
+              <th class="p-4 text-left">الاسم</th>
+              <th class="p-4 text-left">التاريخ</th>
+              <th class="p-4 text-left">الحالة</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Example of report row -->
+            <tr>
+              <td class="p-4">أحمد محمد</td>
+              <td class="p-4">2024-10-20</td>
+              <td class="p-4 text-green-500">حاضر</td>
+            </tr>
+            <tr>
+              <td class="p-4">سارة عبد الله</td>
+              <td class="p-4">2024-10-20</td>
+              <td class="p-4 text-red-500">غائب</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
